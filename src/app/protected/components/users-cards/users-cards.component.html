@@ -1,0 +1,32 @@
+<nb-card *ngIf="users; else loaderDiv">
+  <nb-card-header>{{ cardTitle }}</nb-card-header>
+  <nb-card-body>
+    <nb-list>
+      <nb-list-item class="contact" *ngFor="let user of users">
+        <nb-user
+          [picture]="user | image"
+          [name]="user.firstName + ' ' + user.lastName"
+          [title]="user.mobileNumber"
+          size="large"
+        ></nb-user>
+        <button
+          type="button"
+          nbButton
+          outline
+          shape="semi-round"
+          status="primary"
+          size="small"
+          [routerLink]="[baseRoute, user.id]"
+        >
+          {{ buttonAction }}
+        </button>
+      </nb-list-item>
+    </nb-list>
+  </nb-card-body>
+</nb-card>
+
+<ng-template #loaderDiv>
+  <nb-card nbSpinner="true" nbSpinnerSize="large" nbSpinnerStatus="primary">
+    <nb-card-body> Cargando usuarios... </nb-card-body></nb-card
+  >
+</ng-template>

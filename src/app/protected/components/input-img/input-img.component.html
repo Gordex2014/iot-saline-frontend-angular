@@ -1,0 +1,16 @@
+<div class="file-upload__element">
+  <div *ngIf="base64Image">
+    <img [src]="base64Image" />
+  </div>
+
+  <div *ngIf="genericUser">
+    <img [src]="genericUser | image" />
+  </div>
+</div>
+
+<div class="file-upload__element">
+  <button type="button" nbButton status="primary" (click)="fileInput.click()">
+    Seleccionar imagen
+  </button>
+  <input type="file" hidden #fileInput (change)="onImageChange($event)" />
+</div>

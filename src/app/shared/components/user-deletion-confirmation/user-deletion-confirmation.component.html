@@ -1,0 +1,15 @@
+<nb-card>
+  <nb-card-header>Eliminar usuario</nb-card-header>
+  <nb-card-body>
+    <p>
+      ¿Está seguro que desea eliminar a este usuario? Esta acción es
+      irreversible.
+    </p>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton class="mr-1rem" status="danger" (click)="submit(true)">
+      Eliminar
+    </button>
+    <button nbButton status="primary" (click)="cancel()">Cancelar</button>
+  </nb-card-footer>
+</nb-card>

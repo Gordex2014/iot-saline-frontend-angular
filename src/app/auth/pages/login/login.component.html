@@ -1,0 +1,60 @@
+<h1 id="title" class="title">Inicio de sesión</h1>
+<p class="sub-title">
+  ¡Hola! Ingresa con tu correo o con tu nombre de usuario.
+</p>
+
+<form (ngSubmit)="login()" autocomplete="off" [formGroup]="loginForm">
+  <div class="form-control-group">
+    <label for="input-email-username" class="label"
+      >Correo o nombre de usuario:</label
+    >
+    <input
+      type="email"
+      nbInput
+      fullWidth
+      id="input-email-username"
+      placeholder="Correo o nombre de usuario"
+      [status]="credentialInputColor"
+      formControlName="credential"
+      autofocus
+      required
+    />
+    <p class="error-message" *ngIf="inputValidation('credential')">
+      {{ credentialErrorMsg }}
+    </p>
+  </div>
+
+  <div class="form-control-group">
+    <label for="input-password" class="label">Contraseña:</label>
+    <input
+      type="password"
+      nbInput
+      fullWidth
+      id="input-password"
+      placeholder="Contraseña"
+      [status]="passwordInputColor"
+      formControlName="password"
+      autofocus
+      required
+    />
+    <span class="error-message" *ngIf="inputValidation('password')">{{
+      passwordErrorMsg
+    }}</span>
+  </div>
+
+  <button
+    nbButton
+    fullWidth
+    status="success"
+    type="submit"
+    [disabled]="loginForm.invalid"
+  >
+    Ingresar
+  </button>
+</form>
+
+<section class="another-action" aria-label="Account-recovery">
+  ¿Tienes problemas para ingresar?
+  <br>
+  <a class="text-link" [routerLink]="passwordRequestRoute">Recuperar contraseña</a>
+</section>

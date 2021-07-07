@@ -1,0 +1,25 @@
+<nb-card class="inline-form-card">
+  <nb-card-header>{{ filterTitle }}</nb-card-header>
+  <nb-card-body>
+    <form class="form-inline">
+      <input
+        type="text"
+        nbInput
+        fullWidth
+        [placeholder]="filterPlaceholder"
+        [formControl]="filter"
+      />
+      <button
+        type="button"
+        nbButton
+        outline
+        shape="semi-round"
+        status="primary"
+        size="small"
+        (click)="onSearchClick()"
+      >
+        Buscar
+      </button>
+    </form>
+  </nb-card-body>
+</nb-card>

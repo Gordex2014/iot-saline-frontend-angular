@@ -1,0 +1,106 @@
+<div class="row">
+  <div class="col-md-5 col-xl-4">
+    <ngx-input-img
+      (inputImgSelectedFile)="onImageChange($event)"
+      [genericUser]="user"
+    ></ngx-input-img>
+  </div>
+  <div class="col-md-7 col-xl-8">
+    <nb-alert status="danger" [hidden]="!displayErrorAlert">{{
+      errorAlertMessage
+    }}</nb-alert>
+    <form (submit)="onFormSubmit()" [formGroup]="adminDoctorForm">
+      <nb-card>
+        <nb-card-header>{{ formTitle }}</nb-card-header>
+        <nb-card-body>
+          <div class="full-name-inputs">
+            <input
+              type="text"
+              nbInput
+              fullWidth
+              shape="semi-round"
+              placeholder="Nombres"
+              formControlName="firstName"
+            />
+            <input
+              type="text"
+              nbInput
+              fullWidth
+              shape="semi-round"
+              placeholder="Apellidos"
+              formControlName="lastName"
+            />
+          </div>
+          <input
+            type="email"
+            nbInput
+            fullWidth
+            shape="semi-round"
+            placeholder="Correo"
+            formControlName="email"
+          />
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            shape="semi-round"
+            placeholder="Nombre de usuario"
+            formControlName="username"
+          />
+          <input
+            type="number"
+            nbInput
+            fullWidth
+            shape="semi-round"
+            placeholder="Celular"
+            formControlName="mobileNumber"
+          />
+          <input
+            type="password"
+            nbInput
+            fullWidth
+            shape="semi-round"
+            placeholder="Contraseña"
+            formControlName="password"
+          />
+          <input
+            type="password"
+            nbInput
+            fullWidth
+            shape="semi-round"
+            placeholder="Repita la contraseña"
+            formControlName="password2"
+          />
+          <hr />
+          <div class="confirmation-buttons">
+            <button
+              type="submit"
+              nbButton
+              status="primary"
+              [disabled]="adminDoctorForm.invalid"
+            >
+              {{ confirmationButtonMessage }}
+            </button>
+            <button
+              *ngIf="!deleteButtonHidden"
+              (click)="onUserDeletion()"
+              type="button"
+              nbButton
+              status="danger"
+            >
+              Eliminar
+            </button>
+            <button
+              type="button"
+              nbButton
+              status="warning"
+              [routerLink]="[redirectOnCancelRoute]"
+            >
+              Cancelar
+            </button>
+          </div>
+        </nb-card-body>
+      </nb-card>
+    </form>
+  </div>
+</div>
