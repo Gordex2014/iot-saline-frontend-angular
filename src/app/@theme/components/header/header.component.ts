@@ -26,7 +26,7 @@ enum UserMenuOptions {
 export class HeaderComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
   userPictureOnly: boolean = false;
-  user: any;
+  user: ActiveUser;
 
   themes = [
     {
@@ -58,19 +58,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private sidebarService: NbSidebarService,
     private menuService: NbMenuService,
     private themeService: NbThemeService,
-    private userService: UserData,
     private breakpointService: NbMediaBreakpointsService,
     private authService: AuthService,
     private router: Router,
   ) {}
 
   ngOnInit() {
-    this.currentTheme = this.themeService.currentTheme;
+    this.user = this.authService.user;
 
-    this.userService
-      .getUsers()
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((users: any) => (this.user = users.nick));
+    this.currentTheme = this.themeService.currentTheme;
 
     const { xl } = this.breakpointService.getBreakpointsMap();
     this.themeService

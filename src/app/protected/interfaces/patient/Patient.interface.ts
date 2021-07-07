@@ -19,5 +19,5 @@ export interface PatientCreation {
   gender: Gender;
   mobileNumber: number;
   id?: string;
-  imageFile?: File;
+  imageURI?: string;
 }

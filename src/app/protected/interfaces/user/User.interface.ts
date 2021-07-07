@@ -6,7 +6,7 @@ export interface UserCreation {
   username: string;
   password?: string;
   id?: string;
-  imageFile?: File;
+  imageURI?: string;
 }
 
 export interface UserDTO {

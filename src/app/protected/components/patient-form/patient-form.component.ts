@@ -57,8 +57,8 @@ export class PatientFormComponent implements OnInit {
     }
   }
 
-  onImageChange(file: File) {
-    this.patientForm.get('image').setValue(file);
+  onImageChange(imageURI: string) {
+    this.patientForm.get('image').setValue(imageURI);
     this.imageHasChanged = true;
   }
 
@@ -80,7 +80,7 @@ export class PatientFormComponent implements OnInit {
       gender: this.patientForm.get('gender').value,
       mobileNumber: this.patientForm.get('mobileNumber').value,
       ...(this.imageHasChanged && {
-        imageFile: this.patientForm.get('image').value,
+        imageURI: this.patientForm.get('image').value,
       }),
       ...(this.patient && { id: this.patient.id }),
     });

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { GenericUser } from 'app/protected/interfaces/user/GenericUser.interface';
-import { toBase64 } from 'app/shared/utils/toBase64.helpers';
+import { toBase64URI } from 'app/shared/utils/toBase64URI.helpers';
 import { UsersMock } from 'app/protected/mocks/Users.mock';
 
 @Component({
@@ -16,7 +16,7 @@ export class InputImgComponent implements OnInit {
 
   @Input() genericUser: GenericUser | undefined;
 
-  @Output() inputImgSelectedFile: EventEmitter<File> = new EventEmitter<File>();
+  @Output() selectedInputImgURI: EventEmitter<string> = new EventEmitter<string>();
 
   ngOnInit(): void {
     if (!this.genericUser) {
@@ -29,8 +29,10 @@ export class InputImgComponent implements OnInit {
     const files = target.files as FileList;
     const file: File = files[0];
     if (file.type.split('/')[0] !== 'image') return;
-    toBase64(file).then((value) => (this.base64Image = value));
-    this.inputImgSelectedFile.emit(file);
+    toBase64URI(file).then((value) => {
+      this.base64Image = value;
+      this.selectedInputImgURI.emit(value);
+    });
     this.genericUser = undefined;
   }
 }

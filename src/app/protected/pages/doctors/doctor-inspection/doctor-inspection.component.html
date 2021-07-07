@@ -1,0 +1,16 @@
+<ngx-user-form
+  *ngIf="doctor; else loaderDiv"
+  formTitle="Editar médico"
+  confirmationButtonMessage="Editar"
+  [passwordRequired]="false"
+  [user]="doctor"
+  [redirectOnCancelRoute]="redirectOnCancelRoute"
+  (userCreation)="onFormSubmission($event)"
+  (userDeletion)="onDoctorDeletion($event)"
+></ngx-user-form>
+
+<ng-template #loaderDiv>
+  <nb-card nbSpinner="true" nbSpinnerSize="large" nbSpinnerStatus="primary">
+    <nb-card-body> Cargando usuario... </nb-card-body></nb-card
+  >
+</ng-template>

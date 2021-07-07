@@ -81,7 +81,7 @@ export class UserFormComponent implements OnInit {
       username: this.adminDoctorForm.get('username').value,
       mobileNumber: this.adminDoctorForm.get('mobileNumber').value,
       ...(this.imageHasChanged && {
-        imageFile: this.adminDoctorForm.get('image').value,
+        imageURI: this.adminDoctorForm.get('image').value,
       }),
       ...(this.adminDoctorForm.get('password').value && {
         password: this.adminDoctorForm.get('password').value,
@@ -90,8 +90,8 @@ export class UserFormComponent implements OnInit {
     });
   }
 
-  onImageChange(file: File) {
-    this.adminDoctorForm.get('image').setValue(file);
+  onImageChange(imageURI: string) {
+    this.adminDoctorForm.get('image').setValue(imageURI);
     this.imageHasChanged = true;
   }
 

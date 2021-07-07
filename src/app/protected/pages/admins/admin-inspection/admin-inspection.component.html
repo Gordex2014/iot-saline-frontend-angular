@@ -1,0 +1,16 @@
+<ngx-user-form
+  *ngIf="admin; else loaderDiv"
+  formTitle="Editar administrador"
+  confirmationButtonMessage="Editar"
+  [passwordRequired]="false"
+  [user]="admin"
+  [redirectOnCancelRoute]="redirectOnCancelRoute"
+  (userCreation)="onFormSubmission($event)"
+  (userDeletion)="onAdminDeletion($event)"
+></ngx-user-form>
+
+<ng-template #loaderDiv>
+  <nb-card nbSpinner="true" nbSpinnerSize="large" nbSpinnerStatus="primary">
+    <nb-card-body> Cargando usuario... </nb-card-body></nb-card
+  >
+</ng-template>
