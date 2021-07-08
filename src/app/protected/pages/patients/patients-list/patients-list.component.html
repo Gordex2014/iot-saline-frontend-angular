@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="offset-lg-1 col-lg-10">
+    <ngx-filter-bar (queryParam)="onNameSearch($event)"></ngx-filter-bar>
+  </div>
+</div>
+<div class="row">
+  <div class="offset-lg-1 col-lg-10">
+    <ngx-users-cards
+      cardTitle="Lista de pacientes"
+      [users]="patientsList"
+      [baseRoute]="patientEditionRoute"
+    ></ngx-users-cards>
+  </div>
+</div>

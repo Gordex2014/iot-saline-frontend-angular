@@ -18,6 +18,7 @@ import { InputImgComponent } from './components/input-img/input-img.component';
 import { UsersCardsComponent } from './components/users-cards/users-cards.component';
 import { FilterBarComponent } from './components/filter-bar/filter-bar.component';
 import { PatientFormComponent } from './components/patient-form/patient-form.component';
+import { RecordsCardsComponent } from './components/records-cards/records-cards.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { PatientFormComponent } from './components/patient-form/patient-form.com
     UsersCardsComponent,
     FilterBarComponent,
     PatientFormComponent,
+    RecordsCardsComponent,
   ],
   imports: [
     CommonModule,
@@ -41,11 +43,12 @@ import { PatientFormComponent } from './components/patient-form/patient-form.com
     SharedModule,
   ],
   exports: [
+    FilterBarComponent,
     InputImgComponent,
+    PatientFormComponent,
+    RecordsCardsComponent,
     UserFormComponent,
     UsersCardsComponent,
-    FilterBarComponent,
-    PatientFormComponent,
   ],
 })
 export class ProtectedModule {}

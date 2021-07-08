@@ -62,12 +62,8 @@ export const adminMenuItems: NbMenuItem[] = [
         link: patientsRoutes.viewAll,
       },
       {
-        title: 'Agregar tratamientos',
+        title: 'Ver y agregar tratamientos',
         link: patientsRoutes.addRecords,
-      },
-      {
-        title: 'Listar tratamientos',
-        link: patientsRoutes.listRecords,
       },
     ],
   },

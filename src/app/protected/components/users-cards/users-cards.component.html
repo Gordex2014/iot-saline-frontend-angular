@@ -7,7 +7,7 @@
           [picture]="user | image"
           [name]="user.firstName + ' ' + user.lastName"
           [title]="user.mobileNumber"
-          size="large"
+          [size]="cardFontSize"
         ></nb-user>
         <button
           type="button"
@@ -15,7 +15,7 @@
           outline
           shape="semi-round"
           status="primary"
-          size="small"
+          [size]="buttonFontSize"
           [routerLink]="[baseRoute, user.id]"
         >
           {{ buttonAction }}

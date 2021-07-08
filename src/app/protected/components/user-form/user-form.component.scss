@@ -28,6 +28,7 @@ nb-card-body {
 .confirmation-buttons {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .confirmation-buttons button {

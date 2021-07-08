@@ -5,7 +5,7 @@
  */
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
@@ -22,6 +22,10 @@ import {
 } from '@nebular/theme';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+
+import localeEsBo from '@angular/common/locales/es-BO';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeEsBo);
 
 @NgModule({
   declarations: [AppComponent],
@@ -48,6 +52,7 @@ import { environment } from '../environments/environment';
       registrationStrategy: 'registerWhenStable:30000',
     }),
   ],
+  providers: [{ provide: LOCALE_ID, useValue: 'es-BO' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {

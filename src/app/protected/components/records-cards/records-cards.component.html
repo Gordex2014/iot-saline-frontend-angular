@@ -1,0 +1,51 @@
+<nb-card *ngIf="!screenSizeBig">
+  <nb-card-body class="contact">
+    <small>H: Historia clínica</small><small>+: Agregar registro</small>
+  </nb-card-body>
+</nb-card>
+<nb-card *ngIf="users; else loaderDiv">
+  <nb-card-header>{{ cardTitle }}</nb-card-header>
+  <nb-card-body>
+    <nb-list>
+      <nb-list-item class="contact" *ngFor="let user of users">
+        <nb-user
+          [picture]="user | image"
+          [name]="user.firstName + ' ' + user.lastName"
+          [size]="cardFontSize"
+        ></nb-user>
+        <div class="actions-btn-container">
+          <button
+            class="actions-btn--btn"
+            type="button"
+            nbButton
+            outline
+            shape="semi-round"
+            status="primary"
+            [size]="buttonFontSize"
+            [routerLink]="[viewHistoryBaseRoute, user.id]"
+          >
+            {{ historyButtonTag }}
+          </button>
+          <button
+            class="actions-btn--btn"
+            type="button"
+            nbButton
+            outline
+            shape="semi-round"
+            status="primary"
+            [size]="buttonFontSize"
+            [routerLink]="[addSingleRecordBaseRoute, user.id]"
+          >
+            {{ addRecordButtonTag }}
+          </button>
+        </div>
+      </nb-list-item>
+    </nb-list>
+  </nb-card-body>
+</nb-card>
+
+<ng-template #loaderDiv>
+  <nb-card nbSpinner="true" nbSpinnerSize="large" nbSpinnerStatus="primary">
+    <nb-card-body> Cargando usuarios... </nb-card-body></nb-card
+  >
+</ng-template>

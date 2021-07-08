@@ -1,0 +1,14 @@
+<ngx-patient-form
+  *ngIf="patient; else loaderDiv"
+  formTitle="Editar paciente"
+  confirmationButtonMessage="Editar"
+  [patient]="patient"
+  (patientCreation)="onFormSubmission($event)"
+  (patientDeletion)="onPatientDeletion($event)"
+></ngx-patient-form>
+
+<ng-template #loaderDiv>
+  <nb-card nbSpinner="true" nbSpinnerSize="large" nbSpinnerStatus="primary">
+    <nb-card-body> Cargando paciente... </nb-card-body></nb-card
+  >
+</ng-template>

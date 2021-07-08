@@ -19,6 +19,9 @@ export const patientsRoutes = {
   registration: '/home/patients/register',
   viewAll: '/home/patients/view-all-patients',
   addRecords: '/home/patients/add-patients-records',
-  listRecords: '/home/patients/list-patients-records',
   editPatientBase: '/home/patients/edit',
+  addSinglePatientRecordBase: '/home/patients/add-patient-record',
+  editSinglePatientRecordBase: '/home/patients/edit-patient-record',
+  viewSinglePatientRecordBase: '/home/patients/view-patient-record',
+  viewPatientHistoryBase: '/home/patients/patient-history',
 };
