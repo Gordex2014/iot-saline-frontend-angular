@@ -1,0 +1,14 @@
+<nb-card>
+  <nb-card-header class="text-center">{{ datePickerTitle }}</nb-card-header>
+  <nb-card-body>
+    <input
+      nbInput
+      fullWidth
+      [formControl]="datepickerForm"
+      [placeholder]="datePickerPlaceHolder"
+      [nbDatepicker]="formpicker"
+      (ngModelChange)="onDatePicked($event)"
+    />
+    <nb-datepicker #formpicker></nb-datepicker>
+  </nb-card-body>
+</nb-card>

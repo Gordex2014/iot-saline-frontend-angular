@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AddPatientsRecordsComponent } from './add-patients-records/add-patients-records.component';
+import { AddPatientRecordComponent } from './add-patient-record/add-patient-record.component';
+import { AddPatientsRecordsListComponent } from './add-patients-records-list/add-patients-records-list.component';
 
 import { PatientCreationComponent } from './patient-creation/patient-creation.component';
 import { PatientInspectionComponent } from './patient-inspection/patient-inspection.component';
 import { PatientsListComponent } from './patients-list/patients-list.component';
+import { ViewPatientClinicalHistoryComponent } from './view-patient-clinical-history/view-patient-clinical-history.component';
 
 const routes: Routes = [
   {
@@ -24,7 +26,15 @@ const routes: Routes = [
       },
       {
         path: 'add-patients-records',
-        component: AddPatientsRecordsComponent,
+        component: AddPatientsRecordsListComponent,
+      },
+      {
+        path: 'add-patient-record/:id',
+        component: AddPatientRecordComponent,
+      },
+      {
+        path: 'patient-history/:id',
+        component: ViewPatientClinicalHistoryComponent,
       },
       {
         path: '**',

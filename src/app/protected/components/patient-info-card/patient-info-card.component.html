@@ -1,0 +1,19 @@
+<nb-card *ngIf="patient; else loaderDiv">
+  <nb-card-header class="text-center">
+    {{ patient.firstName }} {{ patient.lastName }}
+  </nb-card-header>
+  <nb-card-body>
+    <img [src]="patient | image" />
+  </nb-card-body>
+  <nb-card-footer>
+    <p><b>Fecha de nacimiento:</b> {{ patient.dateOfBirth | date }}</p>
+    <p><b>Género:</b> {{ patient.gender }}</p>
+    <p><b>Número de celular:</b> {{ patient.mobileNumber }}</p>
+  </nb-card-footer>
+</nb-card>
+
+<ng-template #loaderDiv>
+  <nb-card nbSpinner="true" nbSpinnerSize="large" nbSpinnerStatus="primary">
+    <nb-card-body> Cargando datos del usuario... </nb-card-body></nb-card
+  >
+</ng-template>

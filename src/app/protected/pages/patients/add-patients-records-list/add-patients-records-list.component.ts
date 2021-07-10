@@ -4,11 +4,11 @@ import { PatientsRequestsService } from 'app/protected/services/patients-request
 import { ToastrService } from 'app/shared/services/toastr.service';
 
 @Component({
-  selector: 'ngx-add-patients-records',
-  templateUrl: './add-patients-records.component.html',
-  styleUrls: ['./add-patients-records.component.scss'],
+  selector: 'ngx-add-patients-records-list',
+  templateUrl: './add-patients-records-list.component.html',
+  styleUrls: ['./add-patients-records-list.component.scss'],
 })
-export class AddPatientsRecordsComponent implements OnInit {
+export class AddPatientsRecordsListComponent implements OnInit {
   patientsList: PatientDTO[];
 
   constructor(

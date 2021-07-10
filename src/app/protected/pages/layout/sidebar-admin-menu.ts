@@ -46,7 +46,7 @@ export const adminMenuItems: NbMenuItem[] = [
     ],
   },
   {
-    title: 'TRATAMIENTOS',
+    title: 'REGISTROS CLÍNICOS',
     group: true,
   },
   {
@@ -62,7 +62,7 @@ export const adminMenuItems: NbMenuItem[] = [
         link: patientsRoutes.viewAll,
       },
       {
-        title: 'Ver y agregar tratamientos',
+        title: 'Ver o agregar registros',
         link: patientsRoutes.addRecords,
       },
     ],

@@ -49,5 +49,4 @@ export class RecordsCardsComponent implements OnInit {
   }
 
   @Input() users!: PatientDTO[];
-
 }

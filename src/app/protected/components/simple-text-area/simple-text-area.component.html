@@ -1,0 +1,13 @@
+<nb-card>
+  <nb-card-header class="text-center">{{ textAreaTitle }}</nb-card-header>
+  <nb-card-body>
+    <textarea
+      rows="10"
+      nbInput
+      fullWidth
+      [placeholder]="textAreaPlaceHolder"
+      [(ngModel)]="textAreaData"
+      (ngModelChange)="onTextAreaChange($event)"
+    ></textarea>
+  </nb-card-body>
+</nb-card>

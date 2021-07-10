@@ -10,6 +10,7 @@ export interface PatientDTO {
   clinicalHistoryId: string;
   id: string;
   imageUrl?: string;
+  lastModifiedBy?: string;
 }
 
 export interface PatientCreation {

@@ -19,17 +19,27 @@ import { UsersCardsComponent } from './components/users-cards/users-cards.compon
 import { FilterBarComponent } from './components/filter-bar/filter-bar.component';
 import { PatientFormComponent } from './components/patient-form/patient-form.component';
 import { RecordsCardsComponent } from './components/records-cards/records-cards.component';
+import { UserInfoCardComponent } from './components/user-info-card/user-info-card.component';
+import { SimpleDatePickerComponent } from './components/simple-date-picker/simple-date-picker.component';
+import { SimpleTextAreaComponent } from './components/simple-text-area/simple-text-area.component';
+import { PatientInfoCardComponent } from './components/patient-info-card/patient-info-card.component';
+import { SimpleRecordComponent } from './components/simple-record/simple-record.component';
 
 @NgModule({
   declarations: [
-    LayoutComponent,
     DashboardComponent,
-    InputImgComponent,
-    UserFormComponent,
-    UsersCardsComponent,
     FilterBarComponent,
+    InputImgComponent,
+    LayoutComponent,
     PatientFormComponent,
+    PatientInfoCardComponent,
     RecordsCardsComponent,
+    SimpleDatePickerComponent,
+    SimpleTextAreaComponent,
+    UserFormComponent,
+    UserInfoCardComponent,
+    UsersCardsComponent,
+    SimpleRecordComponent,
   ],
   imports: [
     CommonModule,
@@ -46,8 +56,12 @@ import { RecordsCardsComponent } from './components/records-cards/records-cards.
     FilterBarComponent,
     InputImgComponent,
     PatientFormComponent,
+    PatientInfoCardComponent,
     RecordsCardsComponent,
+    SimpleDatePickerComponent,
+    SimpleTextAreaComponent,
     UserFormComponent,
+    UserInfoCardComponent,
     UsersCardsComponent,
   ],
 })
