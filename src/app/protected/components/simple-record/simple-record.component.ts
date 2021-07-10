@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { Record } from 'app/protected/interfaces/records/responses/PatientClinicalHistoryResponse.interface';
+import { patientsRoutes } from 'app/protected/routes/protected.routes';
 
 @Component({
-  selector: 'simple-record',
+  selector: 'ngx-simple-record',
   templateUrl: './simple-record.component.html',
-  styleUrls: ['./simple-record.component.scss']
+  styleUrls: ['./simple-record.component.scss'],
 })
-export class SimpleRecordComponent implements OnInit {
+export class SimpleRecordComponent {
+  public recordEditionBaseRoute: string = patientsRoutes.editSinglePatientRecordBase;
 
-  constructor() { }
+  @Input() record: Record | undefined;
 
-  ngOnInit(): void {
-  }
-
+  constructor() {}
 }

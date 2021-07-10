@@ -63,6 +63,7 @@ import { SimpleRecordComponent } from './components/simple-record/simple-record.
     UserFormComponent,
     UserInfoCardComponent,
     UsersCardsComponent,
+    SimpleRecordComponent,
   ],
 })
 export class ProtectedModule {}

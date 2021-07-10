@@ -2,5 +2,16 @@
   <div class="col-md-6 col-xl-5">
     <ngx-patient-info-card [patient]="patient"></ngx-patient-info-card>
   </div>
-  <div class="col-md-6 col-xl-7"></div>
+  <div class="col-md-6 col-xl-7">
+    <section *ngIf="records?.length >= 1; else noRecordsToShow">
+      <h4 class="text-center mb-4">Historia clínica del paciente</h4>
+      <article *ngFor="let record of records">
+        <ngx-simple-record [record]="record"></ngx-simple-record>
+      </article>
+    </section>
+  </div>
 </div>
+
+<ng-template #noRecordsToShow>
+  <h4 class="text-center mb-4">Paciente sin historia clínica</h4>
+</ng-template>

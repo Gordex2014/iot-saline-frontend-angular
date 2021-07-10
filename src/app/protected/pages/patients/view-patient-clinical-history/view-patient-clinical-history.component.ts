@@ -16,7 +16,7 @@ import { Record } from 'app/protected/interfaces/records/responses/PatientClinic
 })
 export class ViewPatientClinicalHistoryComponent implements OnInit {
   patient: PatientDTO;
-  records: Record[];
+  records: Record[] | undefined;
 
   redirectOnCancelRoute: string = patientsRoutes.viewAll;
 

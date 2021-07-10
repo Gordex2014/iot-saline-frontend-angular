@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { PatientDTO } from 'app/protected/interfaces/patient/Patient.interface';
 import { PatientsRequestsService } from 'app/protected/services/patients-requests.service';
 import { ToastrService } from 'app/shared/services/toastr.service';
@@ -23,6 +24,17 @@ export class AddPatientsRecordsListComponent implements OnInit {
       },
       (error) => {
         this.toasterService.errorToastr(error.error.error);
+      },
+    );
+  }
+
+  onNameSearch(queryParam: string) {
+    this.patientsRequests.listPatients(queryParam).subscribe(
+      (response) => {
+        this.patientsList = response.body;
+      },
+      (error) => {
+        this.toasterService.errorToastr('Búsqueda inválida');
       },
     );
   }

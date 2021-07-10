@@ -3,7 +3,17 @@
     <ngx-patient-info-card [patient]="patient"></ngx-patient-info-card>
   </div>
   <div class="col-md-6 col-xl-7">
-    <ngx-simple-date-picker></ngx-simple-date-picker>
-    <ngx-simple-text-area></ngx-simple-text-area>
+    <ngx-simple-date-picker
+      (datePickerDate)="onDatePickerEventEmission($event)"
+    ></ngx-simple-date-picker>
+    <ngx-simple-text-area
+      (textAreaValue)="onTextAreaEventEmission($event)"
+    ></ngx-simple-text-area>
+  </div>
+  <div class="col-12 submit-record">
+    <button nbButton status="primary" (click)="addRecord()">Guardar</button>
+    <button nbButton status="danger" [routerLink]="[redirectOnCancelRoute]">
+      Cancelar
+    </button>
   </div>
 </div>

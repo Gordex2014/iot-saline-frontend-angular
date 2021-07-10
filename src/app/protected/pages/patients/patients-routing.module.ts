@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddPatientRecordComponent } from './add-patient-record/add-patient-record.component';
 import { AddPatientsRecordsListComponent } from './add-patients-records-list/add-patients-records-list.component';
+import { EditPatientRecordComponent } from './edit-patient-record/edit-patient-record.component';
 
 import { PatientCreationComponent } from './patient-creation/patient-creation.component';
 import { PatientInspectionComponent } from './patient-inspection/patient-inspection.component';
@@ -35,6 +36,10 @@ const routes: Routes = [
       {
         path: 'patient-history/:id',
         component: ViewPatientClinicalHistoryComponent,
+      },
+      {
+        path: 'edit-patient-record/:id',
+        component: EditPatientRecordComponent,
       },
       {
         path: '**',

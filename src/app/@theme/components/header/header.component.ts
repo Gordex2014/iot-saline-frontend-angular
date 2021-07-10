@@ -1,17 +1,17 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   NbMediaBreakpointsService,
   NbMenuService,
   NbSidebarService,
   NbThemeService,
 } from '@nebular/theme';
-
-import { UserData } from '../../../@core/data/users';
-import { map, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
-import { AuthService } from 'app/auth/services/auth.service';
-import { Router } from '@angular/router';
+import { ActiveUser } from 'app/auth/interfaces/ActiveUser.interface';
 import { loginRoute } from 'app/auth/routes/auth.routes';
+import { AuthService } from 'app/auth/services/auth.service';
+import { Subject } from 'rxjs';
+import { map, takeUntil } from 'rxjs/operators';
+
 
 enum UserMenuOptions {
   Profile = 'Perfil',

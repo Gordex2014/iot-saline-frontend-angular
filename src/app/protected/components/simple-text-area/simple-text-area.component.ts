@@ -8,6 +8,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class SimpleTextAreaComponent implements OnInit {
   public textAreaData: string = '';
 
+  @Input() inputText: string | undefined;
+
   @Input() textAreaTitle: string = 'Nuevo registro clínico del paciente';
 
   @Input() textAreaPlaceHolder: string = 'Nueva entrada';
@@ -16,7 +18,11 @@ export class SimpleTextAreaComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.inputText !== undefined) {
+      this.textAreaData = this.inputText;
+    }
+  }
 
   onTextAreaChange(data: string) {
     this.textAreaValue.emit(data);

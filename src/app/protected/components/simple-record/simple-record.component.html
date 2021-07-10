@@ -1,1 +1,32 @@
-<p>simple-record works!</p>
+<nb-card>
+  <nb-flip-card>
+    <nb-card-front>
+      <nb-card>
+        <nb-card-header>{{ record.dateTime | date }}</nb-card-header>
+        <nb-card-body>
+          <p>{{ record.medicalCondition }}</p>
+        </nb-card-body>
+        <nb-card-footer>
+          <button
+            nbButton
+            status="info"
+            outline
+            [routerLink]="[recordEditionBaseRoute, record.id]"
+          >
+            Editar
+          </button>
+        </nb-card-footer>
+      </nb-card>
+    </nb-card-front>
+    <nb-card-back>
+      <nb-card>
+        <nb-card-header>Última vez tratado por:</nb-card-header>
+        <nb-card-body>
+          {{ record.updatedBy.firstName }} {{ record.updatedBy.lastName }}
+          <br />
+          {{ record.updatedBy.mobileNumber }}
+        </nb-card-body>
+      </nb-card>
+    </nb-card-back>
+  </nb-flip-card>
+</nb-card>

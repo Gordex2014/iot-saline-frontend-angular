@@ -5,6 +5,7 @@ import { map, tap, catchError } from 'rxjs/operators';
 
 import { environment } from 'environments/environment';
 import { AuthResponse } from 'app/auth/interfaces/AuthResponse.interface';
+import { ActiveUser } from 'app/auth/interfaces/ActiveUser.interface'
 
 @Injectable({
   providedIn: 'root',

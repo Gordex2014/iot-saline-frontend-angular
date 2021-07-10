@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -6,8 +6,10 @@ import { FormControl } from '@angular/forms';
   templateUrl: './simple-date-picker.component.html',
   styleUrls: ['./simple-date-picker.component.scss'],
 })
-export class SimpleDatePickerComponent {
-  public datepickerForm: FormControl = new FormControl('');
+export class SimpleDatePickerComponent implements OnInit {
+  public datepickerForm: FormControl | undefined;
+
+  @Input() inputDate: Date | undefined;
 
   @Input() datePickerTitle: string = 'Fecha del registro';
 
@@ -16,6 +18,14 @@ export class SimpleDatePickerComponent {
   @Output() datePickerDate: EventEmitter<Date> = new EventEmitter<Date>();
 
   constructor() {}
+
+  ngOnInit(): void {
+    if (this.inputDate !== undefined) {
+      this.datepickerForm = new FormControl(new Date(this.inputDate));
+    } else {
+      this.datepickerForm = new FormControl('');
+    }
+  }
 
   onDatePicked(inputElement: Date | null) {
     if (this.isInputAValidDate(inputElement)) {

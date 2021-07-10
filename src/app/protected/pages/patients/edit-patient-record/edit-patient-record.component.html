@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-6 col-xl-5">
+    <ngx-patient-info-card
+      *ngIf="patient"
+      [patient]="patient"
+    ></ngx-patient-info-card>
+  </div>
+  <div class="col-md-6 col-xl-7">
+    <ngx-simple-date-picker
+      [inputDate]="record.dateTime"
+      (datePickerDate)="onDatePickerEventEmission($event)"
+      *ngIf="record"
+    ></ngx-simple-date-picker>
+    <ngx-simple-text-area
+      [inputText]="record.medicalCondition"
+      textAreaTitle="Registro clínico del paciente"
+      (textAreaValue)="onTextAreaEventEmission($event)"
+      *ngIf="record"
+    ></ngx-simple-text-area>
+  </div>
+  <div class="col-12 submit-record">
+    <button nbButton status="primary" (click)="editRecord()">Guardar</button>
+    <button
+      nbButton
+      status="danger"
+      [routerLink]="[redirectOnCancelRoute, patientId]"
+    >
+      Cancelar
+    </button>
+  </div>
+</div>
+
+<div class="row" *ngIf="!patient && !record">
+  <div class="col">
+    <ng-template #loaderDiv>
+      <nb-card nbSpinner="true" nbSpinnerSize="large" nbSpinnerStatus="primary">
+        <nb-card-body> Cargando ... </nb-card-body></nb-card
+      >
+    </ng-template>
+  </div>
+</div>
