@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 
 import { environment } from 'environments/environment';
+import { ThemeChangerService } from 'app/shared/services/theme-changer.service';
 import { AuthResponse } from 'app/auth/interfaces/AuthResponse.interface';
 import { ActiveUser } from 'app/auth/interfaces/ActiveUser.interface';
 
@@ -18,7 +19,10 @@ export class AuthService {
     return { ...this._user };
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private themeChangerService: ThemeChangerService,
+  ) {}
 
   login(credential: string, password: string) {
     const url: string = `${this.baseUrl}/auth/login`;
@@ -37,7 +41,7 @@ export class AuthService {
     const url: string = `${this.baseUrl}/auth/renew`;
     const headers: HttpHeaders = new HttpHeaders().set(
       'x-token',
-      localStorage.getItem('token') || '',
+      localStorage.getItem('token') || ''
     );
 
     return this.http.get<AuthResponse>(url, { headers }).pipe(
@@ -58,5 +62,6 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('token');
+    this.themeChangerService.setDefaultTheme();
   }
 }

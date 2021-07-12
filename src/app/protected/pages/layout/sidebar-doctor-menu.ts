@@ -1,15 +1,12 @@
 import { NbMenuItem } from '@nebular/theme';
 import {
-  adminsRoutes,
-  bedsRoutes,
   dashboardRoutes,
   devicesRoutes,
   doctorsRoutes,
   patientsRoutes,
-  roomsRoutes,
 } from 'app/protected/routes/protected.routes';
 
-export const adminMenuItems: NbMenuItem[] = [
+export const doctorMenuItems: NbMenuItem[] = [
   {
     title: 'Dashboard',
     icon: 'home-outline',
@@ -21,27 +18,9 @@ export const adminMenuItems: NbMenuItem[] = [
     group: true,
   },
   {
-    title: 'Administradores',
-    icon: 'settings-2-outline',
-    children: [
-      {
-        title: 'Registrar nuevo administrador',
-        link: adminsRoutes.registration,
-      },
-      {
-        title: 'Ver administradores activos',
-        link: adminsRoutes.viewAll,
-      },
-    ],
-  },
-  {
     title: 'Médicos',
     icon: 'person-add-outline',
     children: [
-      {
-        title: 'Registrar nuevo médico',
-        link: doctorsRoutes.registration,
-      },
       {
         title: 'Ver médicos activos',
         link: doctorsRoutes.viewAll,
@@ -67,38 +46,6 @@ export const adminMenuItems: NbMenuItem[] = [
       {
         title: 'Ver o agregar registros',
         link: patientsRoutes.addRecords,
-      },
-    ],
-  },
-  {
-    title: 'INFRAESTRUCTURA',
-    group: true,
-  },
-  {
-    title: 'Habitaciones',
-    icon: 'home-outline',
-    children: [
-      {
-        title: 'Registrar nueva habitación',
-        link: roomsRoutes.registration,
-      },
-      {
-        title: 'Inspeccionar habitaciones',
-        link: roomsRoutes.inspect,
-      },
-    ],
-  },
-  {
-    title: 'Camas',
-    icon: 'thermometer-plus-outline',
-    children: [
-      {
-        title: 'Registrar nueva cama',
-        link: bedsRoutes.registration,
-      },
-      {
-        title: 'Inspeccionar camas',
-        link: bedsRoutes.inspect,
       },
     ],
   },

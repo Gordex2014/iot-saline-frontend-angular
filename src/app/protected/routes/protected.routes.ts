@@ -25,3 +25,21 @@ export const patientsRoutes = {
   viewSinglePatientRecordBase: '/home/patients/view-patient-record',
   viewPatientHistoryBase: '/home/patients/patient-history',
 };
+
+export const roomsRoutes = {
+  main: '/home/rooms',
+  registration: '/home/rooms/register',
+  inspect: '/home/rooms/view-all-rooms',
+};
+
+export const bedsRoutes = {
+  main: '/home/beds',
+  registration: '/home/beds/register',
+  inspect: '/home/beds/view-all-beds',
+};
+
+export const devicesRoutes = {
+  main: '/home/devices',
+  registration: '/home/devices/register',
+  inspect: '/home/devices/view-all-devices',
+};

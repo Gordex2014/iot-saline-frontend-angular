@@ -48,7 +48,7 @@ export class DoctorInspectionComponent implements OnInit {
         this.router.navigate([doctorsRoutes.viewAll]);
       },
       (error) => {
-        this.toastrService.errorToastr(error.error.error);
+        this.toastrService.errorToastr('Acción no permitida');
       },
     );
   }
@@ -63,7 +63,7 @@ export class DoctorInspectionComponent implements OnInit {
         this.router.navigate([doctorsRoutes.viewAll]);
       },
       (error) => {
-        this.toastrService.errorToastr(error.error.error);
+        this.toastrService.errorToastr('Acción no permitida');
       },
     );
   }
