@@ -8,60 +8,61 @@
   "theme_color": "#151a30",
   "icons": [
     {
-      "src": "assets/icons/health-512x512",
+      "src": "assets/icons/health-512x512.png",
       "sizes": "512x12",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "assets/icons/health-384x384",
+      "src": "assets/icons/health-384x384.png",
       "sizes": "384x384",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "assets/icons/health-192x192",
+      "src": "assets/icons/health-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "assets/icons/health-152x152",
+      "src": "assets/icons/health-152x152.png",
       "sizes": "152x152",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "assets/icons/health-144x144",
+      "src": "assets/icons/health-144x144.png",
       "sizes": "144x144",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "assets/icons/health-128x128",
+      "src": "assets/icons/health-128x128.png",
       "sizes": "128x128",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "assets/icons/health-96x96",
+      "src": "assets/icons/health-96x96.png",
       "sizes": "96x96",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable any"
     },
     {
-      "src": "assets/icons/health-72x72",
+      "src": "assets/icons/health-72x72.png",
       "sizes": "72x72",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "assets/icons/health-120x120",
+      "src": "assets/icons/health-120x120.png",
       "sizes": "120x120",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "assets/icons/health-180x180",
+      "src": "assets/icons/health-180x180.png",
       "sizes": "180x180",
       "type": "image/png",
       "purpose": "maskable any"
