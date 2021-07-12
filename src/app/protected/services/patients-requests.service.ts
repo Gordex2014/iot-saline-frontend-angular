@@ -1,8 +1,9 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from 'environments/environment';
+import { TokenHeaderService } from './token-header.service';
 
 import { ListPatientByIDResponse } from 'app/protected/interfaces/patient/responses/ListPatientByIDResponse.interface';
 import { ListPatientsResponse } from 'app/protected/interfaces/patient/responses/ListPatientsResponse.interface';
@@ -14,24 +15,25 @@ import { PatientModificationResponse } from 'app/protected/interfaces/patient/re
   providedIn: 'root',
 })
 export class PatientsRequestsService {
-  private headers = new HttpHeaders({
-    'x-token': localStorage.getItem('token') || '',
-  });
-
   private baseUrl = environment.baseUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private tokenService: TokenHeaderService,
+  ) {}
 
   listPatients(filter?: string): Observable<ListPatientsResponse> {
     let url = this.baseUrl + '/patients';
     if (filter) url += `?filter=${filter}`;
-    return this.http.get<ListPatientsResponse>(url, { headers: this.headers });
+    return this.http.get<ListPatientsResponse>(url, {
+      headers: this.tokenService.xTokenHeader,
+    });
   }
 
   getPatientById(patientId: string): Observable<ListPatientByIDResponse> {
     const url = this.baseUrl + `/patients/${patientId}`;
     return this.http.get<ListPatientByIDResponse>(url, {
-      headers: this.headers,
+      headers: this.tokenService.xTokenHeader,
     });
   }
 
@@ -50,7 +52,7 @@ export class PatientsRequestsService {
     };
 
     return this.http.post<PatientCreationResponse>(url, newPatientData, {
-      headers: this.headers,
+      headers: this.tokenService.xTokenHeader,
     });
   }
 
@@ -69,7 +71,7 @@ export class PatientsRequestsService {
     };
 
     return this.http.put<PatientModificationResponse>(url, newPatientData, {
-      headers: this.headers,
+      headers: this.tokenService.xTokenHeader,
     });
   }
 
@@ -77,7 +79,7 @@ export class PatientsRequestsService {
     const url = this.baseUrl + `/patients/${patientId}`;
 
     return this.http.delete<PatientModificationResponse>(url, {
-      headers: this.headers,
+      headers: this.tokenService.xTokenHeader,
     });
   }
 }

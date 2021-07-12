@@ -2,23 +2,23 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+import { TokenHeaderService } from './token-header.service';
 import { environment } from 'environments/environment';
 
 import { PatientClinicalHistoryResponse } from 'app/protected/interfaces/records/responses/PatientClinicalHistoryResponse.interface';
 import { ClinicalRecordByIDResponse } from 'app/protected/interfaces/records/responses/ClinicalRecordByIdResponse.interface';
-import { RecordCreationResponse } from '../interfaces/records/responses/RecordCreationResponse.interface';
+import { RecordCreationResponse } from 'app/protected/interfaces/records/responses/RecordCreationResponse.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecordsRequestsService {
-  private headers = new HttpHeaders({
-    'x-token': localStorage.getItem('token') || '',
-  });
-
   private baseUrl = environment.baseUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private tokenService: TokenHeaderService,
+  ) {}
 
   createRecord(
     patientId: string,
@@ -34,7 +34,7 @@ export class RecordsRequestsService {
     };
 
     return this.http.post<RecordCreationResponse>(url, newRecordData, {
-      headers: this.headers,
+      headers: this.tokenService.xTokenHeader,
     });
   }
 
@@ -51,7 +51,7 @@ export class RecordsRequestsService {
     };
 
     return this.http.put<RecordCreationResponse>(url, newRecordData, {
-      headers: this.headers,
+      headers: this.tokenService.xTokenHeader,
     });
   }
 
@@ -60,7 +60,7 @@ export class RecordsRequestsService {
   ): Observable<PatientClinicalHistoryResponse> {
     const url = this.baseUrl + `/records/patient/${patientId}`;
     return this.http.get<PatientClinicalHistoryResponse>(url, {
-      headers: this.headers,
+      headers: this.tokenService.xTokenHeader,
     });
   }
 
@@ -69,7 +69,7 @@ export class RecordsRequestsService {
   ): Observable<ClinicalRecordByIDResponse> {
     const url = this.baseUrl + `/records/${recordId}`;
     return this.http.get<ClinicalRecordByIDResponse>(url, {
-      headers: this.headers,
+      headers: this.tokenService.xTokenHeader,
     });
   }
 }
