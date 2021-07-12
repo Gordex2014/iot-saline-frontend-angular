@@ -50,7 +50,6 @@ export class PasswordRequestComponent implements OnInit {
   ngOnInit(): void {}
 
   sendRequest() {
-    console.log(this.passwordRequestForm.value); // TODO: Password request service
-    this.passwordRequestForm.markAllAsTouched();
+    this.passwordRequestForm.markAllAsTouched(); // TODO: Password request service
   }
 }
