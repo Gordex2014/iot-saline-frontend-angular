@@ -14,7 +14,7 @@ export const routes: Routes = [
     canActivate: [ValidateTokenGuard],
     canLoad: [ValidateTokenGuard],
   },
-  { path: '**', redirectTo: 'auth' },
+  { path: '**', redirectTo: 'home' },
 ];
 
 const config: ExtraOptions = {
